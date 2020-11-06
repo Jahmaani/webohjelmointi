@@ -6,7 +6,7 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host : '127.0.0.1',
+  host : 'localhost',//127.0.0.1
   port : 3306,
   user : 'root',
   password : 'root',
@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 module.exports = 
 {
     fetchTypes: function (req, res) {  
-      connection.query('SELECT Avain, Lyhenne, Selite FROM Asiakastyyppi', function(error, results, fields){
+      connection.query('SELECT * FROM Asiakas', function(error, results, fields){
         if ( error ){
           console.log("Virhe haettaessa dataa Asiakas-taulusta: " + error);
           res.status(500); //tämä lähtee selaimelle
@@ -32,6 +32,8 @@ module.exports =
     },
 
     fetchAll: function(req, res){
+      var sql = 'select * from jotain where 1 = 1'
+
       console.log("Body = " + JSON.stringify(req.body));
       console.log("Params = " + JSON.stringify(req.query));
       console.log(req.query.nimi);

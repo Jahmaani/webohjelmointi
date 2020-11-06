@@ -13,7 +13,7 @@ const http = require('http');
 const url = require('url');
 const { connect } = require('http2');
 
-const hostname = '127.0.0.1';
+const hostname = 'localhost';//127.0.0.1
 const port = process.env.PORT || 3002;
 
 
