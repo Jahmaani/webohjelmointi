@@ -3,11 +3,11 @@ $().ready (() => {
 
     // haetaan asiakastyypit
     $.get({
-        url: "https://codez.savonia.fi/jussi/api/asiakas/tyypit.php",
+        url: "http://localhost:3002/types",
         success: (result) => {
             astys = result;
             result.forEach((r) => {
-                let optstr = `<option value="${r.avain}">${r.lyhenne + " " + toTitleCase(r.selite)}</option>`;
+                let optstr = `<option value="${r.Avain}">${r.Lyhenne + " " + toTitleCase(r.Selite)}</option>`;
                 $('#custType').append(optstr);
                 $('#custCustType').append(optstr);
             });
@@ -18,7 +18,7 @@ $().ready (() => {
     fetch = () => {
         let sp = searcParameters();
         $.get({
-            url: `https://codez.savonia.fi/jussi/api/asiakas/haku.php?${sp}`,
+            url: `http://localhost:3002/types?${sp}`,
             success: (result) => {
                 showResultInTable(result, astys);
         }});
