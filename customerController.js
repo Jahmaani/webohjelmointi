@@ -33,7 +33,7 @@ module.exports =
 
     fetchAll: function(req, res){
       var sql = 'select * from jotain where 1 = 1'
-
+      
       console.log("Body = " + JSON.stringify(req.body));
       console.log("Params = " + JSON.stringify(req.query));
       console.log(req.query.nimi);
