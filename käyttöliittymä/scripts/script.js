@@ -17,8 +17,16 @@ $().ready (() => {
     // haetaan data
     fetch = () => {
         let sp = searcParameters();
+        console.log($("#name").val())
+        console.log($("#address").val())
+        console.log($("#custType").val())
         $.get({
-            url: `http://localhost:3002/types?${sp}`,
+            url: `http://localhost:3002/Asiakas`,
+            data: {
+                nimi: $("#name").val(),
+                osoite: $("#address").val(),
+                asty: $("#custType").val()
+            },     
             success: (result) => {
                 showResultInTable(result, astys);
         }});
